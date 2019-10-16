@@ -1,0 +1,11 @@
+
+<input type="search" name="searchmovies" id="Searchmovies"class="form-control col-md-6 mt-2 offset-2" placeholder="Search By movies"(keyup)="searchMovies($event)">
+
+<div class=" col col-md-4  card card-body float-left" *ngFor="let movie of movies"style="height :400px">
+        <img src="{{movie.Poster}}" alt=""style="height :300px" >
+    <h5>{{movie.Title}}</h5>
+    <h6>{{movie.Type}}</h6>
+    <h6>{{movie.imdbID}}</h6>
+
+</div>
+
