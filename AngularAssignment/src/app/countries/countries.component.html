@@ -1,0 +1,16 @@
+<div class="col-md-4 offset-md-4">
+    <select name="countries" id="countries" class="form-control ng-valid ng-pristine ng-touched" (change)="getCountryNews($event)">
+        <option value="in">India</option>
+        <option value="us">United States</option>
+        <option value="ru">Russia</option>
+        <option value="ua">Dubai</option>
+        <option value="au">Australia</option>
+        
+    </select>
+</div>
+<div class="col-md-3 float-left card card-body" *ngFor="let new of news"style="height :400px">
+    <a href="{{new.url}}">
+        <img src="{{new.urlToImage}}" alt=""style="height :300px" >
+    </a>
+    <h6>{{new.title}}</h6>
+</div>
