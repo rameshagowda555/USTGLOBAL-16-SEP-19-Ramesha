@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Student=new Object();
+        Student.FirstName='Ramesha';
+        Student.LastName='Gowda';
+        Student.Id=555;
+        Student.Marks=85;
+        function Fullname(FirstName,LastName)
+        {
+            return this.FirstName+''+this.LastName;
+        }
+        var FirstName=Student.FirstName;
+        console.log('FirstName='+FirstName);
+        var LastName=Student.LastName;
+        console.log('LastName='+LastName);
+        var Id=Student.Id;
+        console.log('Id='+Id);
+        var Marks=Student.Marks;
+        console.log('Marks='+Marks);
+        var res=Fullname(Student.FirstName,Student.LastName);
+                console.log('FullName',res);
+    </script>
+    <Script>
+        var pen=new Object();
+        pen.color='blue';
+        pen.prize=10;
+        pen.name='vector';
+        function getpen(color,prize)
+        {
+            return this.color+' '+this.prize;
+        }
+        var color=pen.color;
+        console.log('color=',color);
+        var prize=pen.prize;
+        console.log('prize='+prize);
+        var name=pen.name;
+        console.log('name=',name);
+        var res=getpen(pen.color,pen.prize)
+        console.log(res);
+
+    </Script>
+    <script>
+        var book=new Object();
+        book.name='javaScript';
+        var name=book.name;
+        console.log('name=',name);
+    </script>
+    <script>
+        var laptop=new Object();
+        laptop.companyname='lenova';
+        var companyname=laptop.companyname;
+        console.log('companyname=',companyname);
+    </script>
+</body>
+</html>

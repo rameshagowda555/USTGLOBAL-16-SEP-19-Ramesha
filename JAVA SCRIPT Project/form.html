@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+</head>
+<body>
+    <form action="login" id="page">
+    UserName:
+    <input type="text" name="" id="username" onkeydown="validation()" onkeyup="validation()"><br><br>
+    <label for="" id="errorUser" style="margin-left: 75px; font-size: 10px;color: red">Invalid Username *</label><br>
+    Password:
+    <input type="password" name="" id="password" onkeyup="validation()" onkeydown="validation"><br>
+    <label for="" id="errorPassword" style="margin-left: 75px; font-size: 10px;color: red">Invalid password  *</label><br>
+    <input type="checkbox" name="" id="" onclick="showPassword()">showPassword
+    <button id="button1" onclick="validation1()">Login</button>
+    <script src="form.js"></script>
+</form>
+</body>
+</html>
