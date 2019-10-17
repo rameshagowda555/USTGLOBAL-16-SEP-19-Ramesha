@@ -1,0 +1,31 @@
+<!-- <h1>Home component</h1>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- details card section starts from here -->
+<!-- <section class="details-card">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img [src]="imgUrl" [class.rounded-circle]="isActive" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <p id="1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
+                            voluptas totam</p>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- details card section starts from here -->
+
+
+<div class="container col-md-8 offset-2 card card-body" *ngFor = "let new of news">
+    <img src="{{new.urlToImage}}" alt="">
+    <h1>{{new.title}}</h1>
+</div>

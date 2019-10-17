@@ -1,0 +1,19 @@
+<form action="" class="card card-body col-md-4 offset-4  mt-5" #form = "ngForm" (ngSubmit) = "formData(form)">
+    <h1 class="text-center bg-warning text-white">Form-4</h1>
+    <div class="form-group">
+        <input type="text" name="productname" id="productname" required class="form-control" placeholder="Product Name" #productname = "ngModel" ngModel>      
+    </div>
+    <div class="form-group">
+        <input type="text" name="productprice" id="productprice" required class="form-control" placeholder="Product Price" #productprice = "ngModel" ngModel>
+    </div>
+    <div class="form-group">
+        <textarea name="desc" id="desc" cols="30" rows="10"#productdescription = "ngModel" ngModel placeholder="Product description"></textarea> 
+   </div>
+    <div class="form-group">
+        <input type="url" name="productimgurl" id="productimgurl" required class="form-control" placeholder="Product Image Url" #productimgurl = "ngModel" ngModel>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-outline-success float-right"[disabled]="form.invalid">Add Product</button>
+    </div>
+</form>
+
