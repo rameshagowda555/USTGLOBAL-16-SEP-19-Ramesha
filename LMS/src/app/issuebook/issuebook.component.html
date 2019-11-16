@@ -1,0 +1,36 @@
+<div class="alert alert-success" *ngIf='msg'>{{msg}}</div>
+<div class="card card-body md-5 offset-2 col-md-6 mt-5">
+    <div>
+        <h3 style="color:black; text-align: center;">Issue Book</h3>
+    </div>
+    <div>
+        <form action="" #issueBookForm='ngForm' (ngSubmit)='issueBook(issueBookForm)'>
+            <div class="form-group">
+                <input type="number" name="userId" id="userId" pattern="(?=.+\d).{4,}" min="0" title="studentId is number and it should have minimum of 4 digits"
+                    class="form-control mb-3 mt-4" placeholder="Enter Student Id..." #userId='ngModel' ngModel required>
+                <div *ngIf="userId.touched && userId.invalid">
+                    <p *ngIf="userId.errors.required"  style="color: red;">*This field is required</p>
+                    <p *ngIf="userId.errors.pattern"  style="color: red;">*StudentID should have minimum of 4digits
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="bookId" id="bookId" #bookId='ngModel' ngModel class="form-control mb-3"
+                    min="0" pattern="(?=.+\d).{4,}" title="bookId is number and it should have minimum of 4 digits"
+                    placeholder="Enter Book Id" required>
+                <div *ngIf="bookId.touched && bookId.invalid">
+                    <p *ngIf="bookId.errors.required" style="color: red;">*This field is required</p>
+                    <p *ngIf="bookId.errors.pattern" style="color: red;">*Book Id should have minimum of 4 digits</p>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class=" btn btn-outline-dark float-right"
+                    [disabled]='issueBookForm.invalid'>Issue</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-dark float-left" routerLink="/librarian">
+                    Go Back
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

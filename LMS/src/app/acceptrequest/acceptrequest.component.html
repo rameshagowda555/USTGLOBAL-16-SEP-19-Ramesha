@@ -1,0 +1,25 @@
+<div class="alert alert-success" *ngIf='msg'>{{msg}}</div>
+<div class="card card-body md-5 offset-2 col-md-6 mt-5">
+    <div>
+        <h3 style="color:black; text-align: center;">Accept Book Request</h3>
+    </div>
+    <div>
+        <form action="" #acceptBookRequestForm='ngForm' (ngSubmit)='acceptBookRequest(acceptBookRequestForm)'>
+            <div class="form-group">
+                <input type="number" name="registrationId" id="registrationId" min="0" class="form-control mb-3 mt-4"
+                    placeholder="Enter Registration Id..." title="Please Enter Registration Id to Accept a Request"
+                    #registrationId='ngModel' ngModel required>
+                <div *ngIf="registrationId.touched && registrationId.invalid">
+                    <p *ngIf="registrationId.errors.required" style="color: red;">*This field is required</p>
+                </div>
+            </div>
+            <button type="submit" class=" btn btn-outline-dark float-right"
+                [disabled]='acceptBookRequestForm.invalid'>Accept</button>
+            <div>
+                <button type="button" class="btn btn-dark float-left" routerLink="/librarian">
+                    Go Back
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

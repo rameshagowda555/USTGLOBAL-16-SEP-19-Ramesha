@@ -1,0 +1,55 @@
+<div class="card card-body md-5 offset-3 col-md-6 mt-4">
+    <div>
+        <h3 style="color:blue; text-align: center;">Search User</h3>
+    </div>
+    <div>
+        <form #searchForm='ngForm' (ngSubmit)='searchUser(searchForm)'>
+            <div class="form-group">
+                <input type="number" name="userId" id="userId" #userId='ngModel' ngModel class="form-control mb-3"
+                    min="0" pattern="(?=.+\d).{4,}" title="StudentID is number and it should have minimum of 4 digits"
+                    placeholder="Enter Id" required>
+                <div *ngIf="userId.touched && userId.invalid">
+                    <p *ngIf="userId.errors.required" style="color: red;">*This field is required</p>
+                    <p *ngIf="userId.errors.pattern" style="color: red;">*StudentID should have minimum of 4 digits</p>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class=" btn btn-outline-primary float-right"
+                    [disabled]='searchForm.invalid'>Search</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary float-left" routerLink="/admin">
+                    Go Back
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container mt-4">
+    <table class="table table-bordered table-hover">
+        <thead style="color: blue;">
+            <tr>
+                <th>Index</th>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>User Type</th>
+                <th>User Email</th>
+                <th>User Password</th>
+                <th>User Gender</th>
+                <th>User MobileNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let res of users; index as i'>
+                <td>{{i+1}}</td>
+                <td>{{res.userId}}</td>
+                <td>{{res.userName}}</td>
+                <td>{{res.userType}}</td>
+                <td>{{res.userEmail}}</td>
+                <td>{{res.userPassword}}</td>
+                <td>{{res.userGender}}</td>
+                <td>{{res.userMobileNo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

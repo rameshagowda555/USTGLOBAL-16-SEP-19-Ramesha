@@ -1,0 +1,32 @@
+<div class="alert alert-success" *ngIf='Data'>{{Data.description}}</div>
+<h2 class="text-center mt-4 text-sucess" style="color: blue;"><i>Welcome to Admin</i></h2>
+<div class="row">
+  <div class="col-3 mt-4">
+    <div class="nav flex-column nav-pills">
+      <button style="color: skyblue;"><a class="nav-link " style="color: blue;" routerLink="/addstudent"><b>Add
+            Student</b></a></button>
+      <button><a class="nav-link " style="color: blue;" routerLink="/addlibrarian"><b>Add
+            Librarian</b></a></button>
+      <button> <a class="nav-link " style="color: blue;" routerLink="/removestudent"><b>Remove
+            Student</b></a></button>
+      <button><a class="nav-link " style="color: blue;" routerLink="/removelibrarian"><b>Remove
+            Librarian</b></a></button>
+      <button><a class="nav-link " style="color: blue;" routerLink="/updatestudent"><b>Update
+            Student</b></a></button>
+      <button><a class="nav-link " style="color: blue;" routerLink="/updatelibrarian"><b>Update
+            Librarian</b></a></button>
+      <button><a class="nav-link " style="color: blue;" routerLink="/searchuser"><b>Search
+            User</b></a></button>
+      <button><a class="nav-link " style="color: blue;" routerLink="/searchalluser"><b>Show All
+            Users</b></a></button>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"></div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"></div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"></div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"></div>
+    </div>
+  </div>
+</div>
