@@ -1,0 +1,7 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+public class StudentResponse {
+	private int statusCode;
+	private String message;
+	private String description;
+}

@@ -1,0 +1,5 @@
+package com.ustglobal.librarymanagementsystem.controller;
+
+public class HandlingException {
+
+}

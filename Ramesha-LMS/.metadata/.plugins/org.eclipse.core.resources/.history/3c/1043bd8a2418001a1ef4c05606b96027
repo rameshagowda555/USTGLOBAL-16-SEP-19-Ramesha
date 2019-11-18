@@ -1,0 +1,16 @@
+package com.ustglobal.librarymanagementsystem.controller;
+
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.ustglobal.librarymanagementsystem.dto.LibraryResponse;
+
+@RestControllerAdvice
+public class HandlingException {
+	
+	public LibraryResponse getException() {
+		LibraryResponse response = new LibraryResponse();
+		response.setStatusCode(501);
+		response.setMessage("Error in Code");
+		response.setDescription("Got exception");
+	}
+}

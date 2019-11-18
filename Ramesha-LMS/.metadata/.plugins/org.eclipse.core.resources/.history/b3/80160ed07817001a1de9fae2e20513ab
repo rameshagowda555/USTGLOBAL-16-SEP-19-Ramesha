@@ -1,0 +1,10 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import lombok.Data;
+
+@Data
+public class AdminResponse {
+	private int statusCode;
+	private String message;
+	private String description;
+}

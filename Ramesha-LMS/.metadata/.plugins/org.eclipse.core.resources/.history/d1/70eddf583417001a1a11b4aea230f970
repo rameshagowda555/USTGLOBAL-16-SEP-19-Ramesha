@@ -1,0 +1,10 @@
+package com.ustglobal.librarymanagementsystem.dao;
+
+import com.ustglobal.librarymanagementsystem.dto.AdminBean;
+import com.ustglobal.librarymanagementsystem.dto.StudentBean;
+
+public interface AdminDAO {
+	
+	public AdminBean adminLogin(int adminId,String adminName);
+	public boolean addStudent(StudentBean bean);
+}

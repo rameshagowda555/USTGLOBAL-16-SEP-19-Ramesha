@@ -1,0 +1,68 @@
+package com.ustglobal.librarymanagementsystem.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ustglobal.librarymanagementsystem.dao.AdminDAO;
+import com.ustglobal.librarymanagementsystem.dto.AdminBean;
+import com.ustglobal.librarymanagementsystem.dto.LibrarianBean;
+import com.ustglobal.librarymanagementsystem.dto.StudentBean;
+@Service
+public class AdminServiceImpl implements AdminService {
+
+	@Autowired
+	private AdminDAO dao;
+	@Override
+	public AdminBean adminLogin(int adminId, String adminPassword) {
+		AdminBean bean = new AdminBean();
+		if(adminId!=0||adminPassword!=null) {
+			return dao.adminLogin(adminId, adminPassword); 
+		}else if(adminPassword.length()>=8) {
+			return dao.adminLogin(adminId, adminPassword);
+		}
+		return null;
+		//		return dao.adminLogin(adminId, adminPassword);
+	}
+
+	@Override
+	public boolean addStudent(StudentBean bean) {
+		if(bean.getYearOfStudying()>4) {
+			return false;
+		}else if(bean.getStudentUsn()!=0||bean.getStudentEmail()!=null) {
+			return dao.addStudent(bean);
+		}
+		return false;
+		//		return dao.addStudent(bean);
+	}
+
+	@Override
+	public boolean addLibrarian(LibrarianBean bean) {
+		if(bean.getLibrarianId()!=0||bean.getLibrarianPassword()!=null) {
+			return dao.addLibrarian(bean);
+		}else if(bean.getLibrarianEmail()!=null) {
+			return dao.addLibrarian(bean);
+		}else {
+			return false;
+		}		
+		
+	}
+
+	@Override
+	public boolean removeStudent(int studentId) {
+		if(studentId!=0) {
+			return dao.removeStudent(studentId);
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean removeLibrarian(int librarianId) {
+		if(librarianId!=0) {
+			return dao.removeLibrarian(librarianId);
+		}else {
+			return false;
+		}
+	}
+
+}

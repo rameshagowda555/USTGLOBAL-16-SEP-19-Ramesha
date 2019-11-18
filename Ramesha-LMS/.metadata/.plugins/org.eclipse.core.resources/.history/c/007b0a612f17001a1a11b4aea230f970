@@ -1,0 +1,6 @@
+package com.ustglobal.librarymanagementsystem.dao;
+
+public interface AdminBeanDAO {
+	
+	public AdminBean adminLogin(int adminId,String adminName)
+}

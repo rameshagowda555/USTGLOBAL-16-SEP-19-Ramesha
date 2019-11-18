@@ -1,0 +1,7 @@
+package com.ustglobal.librarymanagementsystem.service;
+
+import com.ustglobal.librarymanagementsystem.dto.LibrarianBean;
+
+public interface LibrarianService {
+	public LibrarianBean librarianLogin(int librarianId,String librarianPassword);
+}

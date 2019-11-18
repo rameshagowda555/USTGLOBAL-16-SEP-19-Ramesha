@@ -1,0 +1,15 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="book")
+public class BookBean {
+	private int bid;
+	private String bname;
+	private String title;
+}

@@ -1,0 +1,11 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import lombok.Data;
+
+@Data
+public class StudentResponse {
+	private int statusCode;
+	private String message;
+	private String description;
+	private List<BookBean> bookBean;
+}

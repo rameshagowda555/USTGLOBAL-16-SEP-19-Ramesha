@@ -1,0 +1,156 @@
+package com.ustglobal.librarymanagementsystem.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.librarymanagementsystem.dto.UserBean;
+@Repository
+public class AdminDAOImpl implements AdminDAO {
+
+	@PersistenceUnit
+	private EntityManagerFactory factory;
+	@Override
+	public UserBean adminLogin(int adminId, String adminPassword) {
+		String jpql = "from UserBean where userId=:userId and userPassword=:userPassword";
+		EntityManager manager = factory.createEntityManager();
+		TypedQuery<UserBean>query = manager.createQuery(jpql,UserBean.class);
+		query.setParameter("userId",adminId);
+		query.setParameter("userPassword", adminPassword);
+		try {
+			UserBean bean = query.getSingleResult();
+			return bean;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	@Override
+	public boolean addStudent(UserBean bean) {
+		EntityManager entityManager=factory.createEntityManager();
+		EntityTransaction transaction=entityManager.getTransaction();
+		try {
+			bean.setUserType("Student");
+			transaction.begin();
+			entityManager.persist(bean);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean addLibrarian(UserBean bean) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		try {
+			
+			bean.setUserType("Librarian");
+			transaction.begin();
+			manager.persist(bean);
+			transaction.commit();
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean removeStudent(int studentId) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+
+		UserBean bean = manager.find(UserBean.class, studentId);
+		if(bean!=null&&bean.getUserType()=="Student") {
+			manager.remove(bean);
+			transaction.commit();
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean removeLibrarian(int librarianId) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		UserBean bean = manager.find(UserBean.class,librarianId);
+		if(bean!=null&&bean.getUserType()=="Librarian") {
+			manager.remove(bean);
+			transaction.commit();
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public UserBean searchStudent(int userId) {
+		EntityManager entityManager=factory.createEntityManager();
+		UserBean user=entityManager.find(UserBean.class, userId);
+		user.setUserType("Student");
+		if(user!=null && user.getUserType()=="Student") {
+			return user;
+		}else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<UserBean> searchAllStudent() {
+		String jpql = "from UserBean where userType=:user";
+		EntityManager manager = factory.createEntityManager();
+		TypedQuery<UserBean> query = manager.createQuery(jpql,UserBean.class);
+		query.setParameter("user", "Student");
+		List<UserBean> bean = query.getResultList();
+		return bean;
+	}
+
+	@Override
+	public boolean updateStudent(UserBean bean) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		UserBean userBean = manager.find(UserBean.class, bean.getUserId());
+		userBean.setUserType("Student");
+		userBean.setUserName(bean.getUserName());
+		userBean.setUserPassword(bean.getUserPassword());
+		userBean.setUserEmail(bean.getUserEmail());
+		userBean.setUserGender(bean.getUserGender());
+		userBean.setUserMobileNo(bean.getUserMobileNo());
+		userBean.setUserId(bean.getUserId());
+		transaction.commit();
+		return true;
+	}
+
+	@Override
+	public boolean updateLibrarian(UserBean bean) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		UserBean librarianBean = manager.find(UserBean.class, bean.getUserId());
+		librarianBean.setUserType("Librarian");
+		librarianBean.setUserName(bean.getUserName());
+		librarianBean.setUserGender(bean.getUserGender());
+		librarianBean.setUserId(bean.getUserId());
+		librarianBean.setUserEmail(bean.getUserEmail());
+		librarianBean.setUserMobileNo(bean.getUserMobileNo());
+		librarianBean.setUserPassword(bean.getUserPassword());
+		transaction.commit();
+		return true;
+	}
+}

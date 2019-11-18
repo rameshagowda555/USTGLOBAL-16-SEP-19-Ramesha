@@ -1,0 +1,5 @@
+package com.ustglobal.librarymanagementsystem.config;
+
+public class ORMConfig {
+
+}

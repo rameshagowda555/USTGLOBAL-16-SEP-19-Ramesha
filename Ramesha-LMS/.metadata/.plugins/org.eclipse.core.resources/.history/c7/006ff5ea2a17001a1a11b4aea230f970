@@ -1,0 +1,13 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+public class StudentBean {
+	
+	private int usn;
+	private String name;
+	private String email;
+	private String password;
+	private String gender;
+	private long mobileno;
+	private String yearofstudying;
+	private String doj;
+}

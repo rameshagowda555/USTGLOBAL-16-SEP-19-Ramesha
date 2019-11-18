@@ -1,0 +1,7 @@
+package com.ustglobal.librarymanagementsystem.dao;
+
+import com.ustglobal.librarymanagementsystem.dto.LibrarianBean;
+
+public interface LibrarianDAO {
+	public LibrarianBean librarianLogin(int librarianId,String librarianPassword);
+}

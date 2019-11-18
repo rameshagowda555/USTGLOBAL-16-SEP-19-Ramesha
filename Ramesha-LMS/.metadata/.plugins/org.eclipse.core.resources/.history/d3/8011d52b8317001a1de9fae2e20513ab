@@ -1,0 +1,40 @@
+package com.ustglobal.librarymanagementsystem.service;
+
+import java.util.List;
+
+import com.ustglobal.librarymanagementsystem.dto.BookBean;
+import com.ustglobal.librarymanagementsystem.dto.StudentBean;
+
+public class StudenServiceImpl implements StudentService {
+
+	@Override
+	public StudentBean studentLogin(int studentId, String studentPassword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BookBean searchBookByName(String bookName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void requestBook(int bookId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cancelRequest(int bookId, int studentId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<BookBean> searchAllBooks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

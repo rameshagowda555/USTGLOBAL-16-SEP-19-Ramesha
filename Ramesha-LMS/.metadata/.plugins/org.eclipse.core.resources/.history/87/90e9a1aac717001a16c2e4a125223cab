@@ -1,0 +1,55 @@
+package com.ustglobal.librarymanagementsystem.service;
+
+import java.util.List;
+
+import javax.persistence.PersistenceUnit;
+
+import org.springframework.stereotype.Service;
+
+import com.ustglobal.librarymanagementsystem.dao.StudentDAO;
+import com.ustglobal.librarymanagementsystem.dto.AdminBean;
+import com.ustglobal.librarymanagementsystem.dto.BookBean;
+import com.ustglobal.librarymanagementsystem.dto.StudentBean;
+@Service
+public class StudenServiceImpl implements StudentService {
+	
+	@PersistenceUnit
+	private StudentDAO dao;
+	@Override
+	public StudentBean studentLogin(int studentId, String studentPassword) {
+		StudentBean bean = new StudentBean();
+		if(studentId!=0||studentPassword!=null) {
+			return dao.studentLogin(studentId, studentPassword); 
+		}else if(studentPassword.length()>=8) {
+			return dao.studentLogin(studentId, studentPassword);
+		}
+		return null;
+	}
+	@Override
+	public BookBean searchBookByName(String bookName) {
+		if(bookName!=null) {
+			return dao.searchBookByName(bookName);
+		}else {
+			return null;
+		}
+	}
+
+//	@Override
+//	public void requestBook(int bookId) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void cancelRequest(int bookId, int studentId) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public List<BookBean> searchAllBooks() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+}

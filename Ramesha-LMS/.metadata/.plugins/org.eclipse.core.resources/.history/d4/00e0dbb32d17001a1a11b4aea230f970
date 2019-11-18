@@ -1,0 +1,10 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+public class AdminBean {
+	private int adminid;
+	private String adminname;
+	private String adminemail;
+	private String adminpassword;
+	private long adminmobileno;
+	
+}

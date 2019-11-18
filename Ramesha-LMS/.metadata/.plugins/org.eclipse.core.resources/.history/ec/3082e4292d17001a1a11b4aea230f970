@@ -1,0 +1,33 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="student")
+public class StudentBean {
+	@Id
+	@Column
+	@GeneratedValue
+	private int usn;
+	@Column
+	private String name;
+	@Column(unique = true)
+	private String email;
+	@Column
+	private String password;
+	@Column
+	private String gender;
+	@Column
+	private long mobileno;
+	@Column
+	private String yearofstudying;
+	@Column
+	private String doj;
+}

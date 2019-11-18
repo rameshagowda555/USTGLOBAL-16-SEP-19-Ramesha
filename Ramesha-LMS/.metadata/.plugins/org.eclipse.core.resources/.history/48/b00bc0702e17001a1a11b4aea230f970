@@ -1,0 +1,17 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+@Data
+@Entity
+@Table(name="issuedbookdetails")
+public class IssuedBookDetails {
+	@Column
+	private Date issuedDate;
+	private Date returnDate;
+}

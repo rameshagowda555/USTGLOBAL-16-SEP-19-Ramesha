@@ -1,0 +1,43 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.Data;
+import lombok.ToString.Exclude;
+
+@Data
+@Entity
+@Table(name="student")
+public class StudentBean {
+	@Id
+	@Column
+	private int studentUsn;
+	@Column
+	private String studentName;
+	@Column(unique = true)
+	private String studentEmail;
+	@Column
+	private String studentPassword;
+	@Column
+	private String studentGender;
+	@Column
+	private long studentMobileNo;
+	@Column
+	private int yearOfStudying;
+	@Column
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private String studentDoj;
+	
+	@Exclude
+	@OneToMany(mappedBy = "student")
+	private List<IssuedBookDetails> issuedBookDetails;
+}

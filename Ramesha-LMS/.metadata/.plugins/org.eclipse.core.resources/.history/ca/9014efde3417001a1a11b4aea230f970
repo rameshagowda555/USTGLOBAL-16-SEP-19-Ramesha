@@ -1,0 +1,25 @@
+package com.ustglobal.librarymanagementsystem.service;
+
+import com.ustglobal.librarymanagementsystem.dto.AdminBean;
+import com.ustglobal.librarymanagementsystem.dto.StudentBean;
+
+public class AdminServiceImpl implements AdminService {
+
+	@Override
+	public AdminBean adminLogin(int adminId, String adminPassword) {
+		AdminBean bean = new AdminBean();
+		if(adminId!=0||adminPassword!=null) {
+			return bean; 
+		}else if(adminPassword.length()>8) {
+			return bean;
+		}
+		return null;
+	}
+
+	@Override
+	public boolean addStudent(StudentBean bean) {
+		
+		return false;
+	}
+
+}

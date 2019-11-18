@@ -1,0 +1,27 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="librarian")
+public class LibrarianBean {
+	@Id
+	@Column
+	@GeneratedValue
+	private int librarianId;
+	@Column
+	private String librarianName;
+	@Column(unique = true)
+	private String librarianEmail;
+	@Column
+	private String librarianPassword;
+	@Column
+	private long librarianMobileNo;
+}

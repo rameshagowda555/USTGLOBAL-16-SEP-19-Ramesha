@@ -1,0 +1,169 @@
+package com.ustglobal.librarymanagementsystem.controller;
+
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ustglobal.librarymanagementsystem.dto.UserBean;
+import com.ustglobal.librarymanagementsystem.dto.UserResponse;
+import com.ustglobal.librarymanagementsystem.service.AdminService;
+
+@RestController
+public class AdminController {
+	@Autowired
+	private AdminService service;
+
+	@GetMapping(path="/user-login/{adminId}/{adminPassword}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse adminLogin(@PathVariable("adminId")int adminId,@PathVariable("adminPassword")String adminPassword) {
+		UserResponse response = new UserResponse();
+		UserBean bean = service.adminLogin(adminId, adminPassword);
+		if(bean!= null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Admin Login Successfully");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Admin Not Able To Login");
+		}
+		return response;
+	}
+
+	@PostMapping(path="/add-student",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse addStudent(@RequestBody UserBean bean) {
+		UserResponse response = new UserResponse();
+		if(service.addStudent(bean)) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Student Data added to the DataBase");
+		}else {	
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Student Data not added to the DataBase");
+		}
+		return response;
+	}
+
+	@PostMapping(path="/add-librarian",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse addLibrarian(@RequestBody UserBean bean) {
+		UserResponse response = new UserResponse();
+		if(service.addLibrarian(bean)) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Librarian Data added to the DataBase");
+		}else {	
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Librarian Data Not added to the DataBase");
+		}
+		return response;
+	}
+	
+	@DeleteMapping(path = "/delete-student/{studentId}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse removeStudent(@PathVariable("studentId")int studentId) {
+		UserResponse response = new UserResponse();
+		if(service.removeStudent(studentId)) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Student Data Removed from the DataBase");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Student Data Not Removed from the DataBase");
+		}
+		return response;
+	}
+	@DeleteMapping(path = "/delete-librarian/{librarianId}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse removeLibrarian(@PathVariable("librarianId")int librarianId) {
+		UserResponse response = new UserResponse();
+		if(service.removeLibrarian(librarianId)) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Librarian Data Removed from the DataBase");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Librarian Data Not Removed from the DataBase");
+		}
+		return response;
+	}
+	
+	@GetMapping(path="/search-student/{userId}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse searchStudent(@PathVariable("userId")int userId) {
+		UserResponse response = new UserResponse();
+		UserBean bean = service.searchStudent(userId);
+		
+		if(bean!=null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Student Data Found in the DataBase");
+			response.setUserBean(Arrays.asList(bean));//in the list it store only one result
+			
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Student Data Not Found in the DataBase");	
+		}
+		return response;
+	}
+	
+	@GetMapping(path="/search-allstudent",produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse searchAllStudent(){
+		UserResponse response = new UserResponse();
+		List<UserBean> bean = service.searchAllStudent();
+		if(!bean.isEmpty()) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Student Data Found in the DataBase");
+			response.setUserBean(bean);//in the list it store only one result
+			
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Student Data Not Found in the DataBase");	
+		}
+		
+		return response;
+	}
+	
+	@PutMapping(path="/update-student",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse modifyStudent(@RequestBody UserBean bean) {
+		UserResponse response = new UserResponse();
+		if(service.updateStudent(bean)) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Student Data Updated in the DataBase");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Student Data Not Not Updated in the DataBase");	
+		}
+		return response;
+	}
+	
+	@PutMapping(path="/update-librarian",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse modifyLibrarian(@RequestBody UserBean bean) {
+		UserResponse response = new UserResponse();
+		if(service.updateLibrarian(bean)) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Librarian Data Updated in the DataBase");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Librarian Data Not Not Updated in the DataBase");	
+		}
+		return response;
+	}
+	
+}

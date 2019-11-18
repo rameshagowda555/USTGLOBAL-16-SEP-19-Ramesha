@@ -1,0 +1,25 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="book")
+public class BookBean {
+	@Id
+	@Column
+	@GeneratedValue
+	private int bookId;
+	@Column
+	private String bookName;
+	@Column
+	private String bookTitle;
+	@Column
+	private String author;
+}

@@ -1,0 +1,28 @@
+package com.ustglobal.librarymanagementsystem.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="admin")
+public class AdminBean {
+	@Id
+	@Column
+	@GeneratedValue
+	private int adminid;
+	@Column
+	private String adminname;
+	@Column(unique = true)
+	private String adminemail;
+	@Column
+	private String adminpassword;
+	@Column
+	private long adminmobileno;
+	
+}

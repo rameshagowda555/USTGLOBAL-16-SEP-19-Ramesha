@@ -1,0 +1,122 @@
+package com.ustglobal.librarymanagementsystem.dao;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.librarymanagementsystem.dto.AdminBean;
+import com.ustglobal.librarymanagementsystem.dto.BookBean;
+import com.ustglobal.librarymanagementsystem.dto.BooksRegistration;
+import com.ustglobal.librarymanagementsystem.dto.StudentBean;
+
+@Repository
+public class StudentDAOImpl implements StudentDAO {
+
+	@PersistenceUnit
+	private EntityManagerFactory factory;
+
+	@Override
+	public StudentBean studentLogin(int studentId, String studentPassword) {
+		String jpql = "from StudentBean where studentId=:id and studentPassword=:pass";
+		EntityManager manager = factory.createEntityManager();
+		TypedQuery<StudentBean>query = manager.createQuery(jpql,StudentBean.class);
+		query.setParameter("id", studentId);
+		query.setParameter("pass", studentPassword);
+		try {
+			StudentBean bean = query.getSingleResult();
+			return bean;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public BookBean searchBookByName(String bookName) {
+		String jpql = "from BookBean where  bookName=:bookName";
+		EntityManager manager = factory.createEntityManager();
+		TypedQuery<BookBean> query = manager.createQuery(jpql,BookBean.class);
+		query.setParameter("bookName", bookName);
+		try {
+			BookBean bean = query.getSingleResult();
+			return (BookBean) bean;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	
+	@Override
+	public List<BookBean> searchAllBooks() {
+		String jpql = "from BookBean ";
+		EntityManager manager = factory.createEntityManager();
+		TypedQuery<BookBean> query = manager.createQuery(jpql,BookBean.class);
+		try {
+			List<BookBean> bean = query.getResultList();
+			return bean;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+	
+	@Override
+	public boolean requestBook(int bookId,int studentId) {
+		EntityManager entityManager=factory.createEntityManager();
+		EntityTransaction transaction=entityManager.getTransaction();
+		transaction.begin();
+		try {
+			/*
+			 * BookBean bean=entityManager.find(BookBean.class, bookId); StudentBean
+			 * studentBean=entityManager.find(StudentBean.class, studentId);
+			 */
+			
+			registration.setBookId(bookId);
+			registration.setStudentId(studentId);
+			Date todayDate  = new Date();
+			/* registration.setRegistrationDate(Date); */
+			entityManager.persist(registration);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean cancelRequest(String registrationId,int studentId) {
+		EntityManager entityManager=factory.createEntityManager();
+		EntityTransaction transaction=entityManager.getTransaction();
+		transaction.begin();
+		String select="from BooksRegistration where registrationId=:registrationId and studentId=:studentId";
+		Query query=entityManager.createQuery(select);
+
+		query.setParameter("registrationId", registrationId);
+		query.setParameter("studentId", studentId);
+		BooksRegistration book=null;
+		try {
+			book=(BooksRegistration)query.getSingleResult();
+			entityManager.remove(book);
+			transaction.commit();
+
+		}catch(Exception e) {
+			transaction.rollback();
+			return false;
+		}
+		entityManager.close();
+		return true;
+	}
+
+}
