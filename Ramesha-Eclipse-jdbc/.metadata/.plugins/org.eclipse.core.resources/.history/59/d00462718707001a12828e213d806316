@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="">
+	<table align="center">
+		<th colspan ="2" color="blue"><h2>Login</h2></th>
+		<tr>
+			<td>Enter Id </td>
+			<td><input name ="id" type="text"></td>
+		</tr>
+		<tr>
+			<td> Enter Password </td>
+			<td><input name ="password" type="password"></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox">Remember Me </td>
+			
+		</tr>
+		<tr>
+			<td ><a href="register.html" alt="Not Found">Register Here</a></td>
+			<td align="right" colspan ="2"><input type="submit" value="Login" ></td>
+		</tr>
+		
+	</table>
+</form>
+</body>
+</html>

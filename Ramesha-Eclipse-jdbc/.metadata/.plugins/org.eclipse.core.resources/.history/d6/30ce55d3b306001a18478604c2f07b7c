@@ -1,0 +1,5 @@
+package com.ustglobal.jdbcservlet;
+
+public class EmployeeDetails {
+
+}

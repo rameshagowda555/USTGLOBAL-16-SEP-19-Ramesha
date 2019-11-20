@@ -1,0 +1,8 @@
+package com.ustglobal.empwebapp.servlets;
+
+import javax.servlet.http.HttpServlet;
+
+public class SearchServlet extends HttpServlet {
+	
+	
+}//end of SearchServlet

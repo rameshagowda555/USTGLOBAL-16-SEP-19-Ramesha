@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<fieldset style="width: 50%" align="center">
+<form action="" method="post">	
+	
+<table align="center">
+		<th colspan ="2" ><h2 style="color: blue">Search</h2></th>
+	<tr>
+		<td align="left"><a href ="" >Home</a></td>
+		<td align="right"><a href ="login.html">LogOut</a></td>
+	</tr>
+	<tr>
+		<td>Search By Id</td>
+		<td><input name="q" type="number"></td>
+	</tr>
+	<tr>
+		<td  align="right" colspan ="2"><input type ="submit" value="search"></td>
+	</tr>
+</table>
+</form>
+</fieldset>
+</body>
+</html>

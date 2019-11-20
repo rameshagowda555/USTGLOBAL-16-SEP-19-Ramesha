@@ -1,0 +1,7 @@
+package com.ustglobal.webapp.servlets;
+
+public class FormServlet {
+	public static void main(String[] args) {
+		
+	}
+}

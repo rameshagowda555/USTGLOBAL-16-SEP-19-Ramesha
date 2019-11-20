@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href='./home'>Home</a>
+	<a href='./logout' style='float: right'>Logout</a>
+	<fieldset style='width:50%'>
+	<table align='center' border='1'>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+
+		<tr>
+			<td><%=info.getId() %></td>
+			<td><%=info.getName() %></td>
+			<td><%=info.getEmail() %></td>
+		</tr>
+	</table>
+	</fieldset>
+</body>
+</html>

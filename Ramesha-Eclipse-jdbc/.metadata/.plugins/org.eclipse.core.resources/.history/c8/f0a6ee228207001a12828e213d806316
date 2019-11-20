@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="">
+	<table align="center">
+		<tr>
+			<th colspan ="2">Register Employee</th>
+		</tr>
+	
+		<tr>
+			<td>Enter Id :</td>
+			<td><input name ="id" type="text"></td>
+		</tr>
+		<tr>
+			<td>Enter Name :</td>
+			<td><input name ="name" type="text"></td>
+		</tr>
+		<tr>
+			<td>Enter Email :</td>
+			<td><input name ="email" type="email"></td>
+		</tr>
+		<tr>
+			<td> Enter Password :</td>
+			<td><input name ="password" type="password"></td>
+		</tr>
+		<tr>
+			<td><input name = "register" type="submit" ></td>
+		</tr>
+		<tr>
+			<td><a href="" alt="Not Found">Register</a></td>
+		</tr>
+		
+	</table>
+</form>
+</body>
+</html>

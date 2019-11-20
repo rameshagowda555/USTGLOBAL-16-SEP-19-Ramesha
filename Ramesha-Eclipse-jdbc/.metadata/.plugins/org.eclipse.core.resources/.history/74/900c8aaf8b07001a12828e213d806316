@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<fieldset align="center" style="width: 30%;height: 100%">
+<form action="" align="center">	
+	<h2 style="color: blue">Search</h2>
+	<a href ="" >Home</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<a href ="login.html">LogOut</a>
+
+<table align="center">
+	<tr>
+		<td align="left"><a href ="" >Home</a></td>
+	</tr>
+	<tr>
+		<td align="left"><a href ="login.html">LogOut</a></td>
+	</tr>
+	<tr>
+		<td>Search By Id</td>
+		<td><input name="q" type="number"></td>
+	</tr>
+	<tr>
+		<td  align="right" colspan ="2"><input type ="submit" value="search"></td>
+	</tr>
+</table>
+</form>
+</fieldset>
+</body>
+</html>

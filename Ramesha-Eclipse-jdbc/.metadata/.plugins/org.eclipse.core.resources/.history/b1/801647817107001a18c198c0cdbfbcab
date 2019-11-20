@@ -1,0 +1,31 @@
+package com.ustglobal.empwebapp.dao;
+
+import com.ustglobal.empwebapp.dto.EmployeeInfo;
+
+public class EmployeeDaoJdbcImpl implements EmployeeDAO{
+
+	@Override
+	public EmployeeInfo auth(int id, String password) {
+		
+		return null;
+	}
+
+	@Override
+	public EmployeeInfo searchEmployee(int id) {
+		
+		return null;
+	}
+
+	@Override
+	public boolean changePassword(int id, String password) {
+		
+		return false;
+	}
+
+	@Override
+	public boolean registerEmployee(EmployeeInfo info) {
+		
+		return false;
+	}
+
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action=""align="center">
+	<h2>Change Password</h2>
+	<a href ="" >Home</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<a href ="login.html">LogOut</a>
+	<table align="center">
+		<tr>
+			<td>NewPassword</td>
+			<td><input name="password" type="password"></td>
+		</tr>
+		<tr>
+			<td>ChangePassword</td>
+			<td><input name="password" type="password"></td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><input type="submit" value="Change"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

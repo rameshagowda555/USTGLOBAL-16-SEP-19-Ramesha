@@ -1,0 +1,44 @@
+package com.ustglobal.empwebapp.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class LoginPageServlet  extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter out = resp.getWriter();
+		out.println("<form action='./login' method='post'>");
+		out.println("<table align='center'>");
+		out.println("<th colspan ='2' style='color: red'><h2>Login</h2></th>");
+		out.println("<tr>");
+		out.println("<td>Enter Id </td>");
+		out.println("<td><input name ='id' type='number'></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td> Enter Password </td>");
+		out.println("<td><input name ='password' type='password'></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td><input name = ' rememberme' type='checkbox' value='checked'>Remember Me </td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td align='left'><input  type='submit' value='Reset' ></td>");
+		out.println("<td align='right' colspan ='2'><input type='submit' value='Login' ></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td ><a href='register.html' alt='Not Found'>Register Here</a></td>");
+		out.println("</tr>");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+	}//end of doGet()
+}//end of LoginPageServlet
