@@ -1,0 +1,7 @@
+package com.ustglobal.java8features.predicate;
+
+public class TestA {
+	public static void main(String[] args) {
+		
+	}
+}

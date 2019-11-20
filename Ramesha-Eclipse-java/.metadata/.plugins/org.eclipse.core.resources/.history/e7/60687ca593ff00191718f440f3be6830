@@ -1,0 +1,22 @@
+package com.ustglobal.maps;
+
+import java.util.HashMap;
+
+public class TestB {
+	public static void main(String[] args) {
+		
+		HashMap hm = new HashMap();
+		hm.put("kuku",741102);
+		hm.put("mala", 741166);
+		hm.put("sheela", 872254);
+		
+		HashMap hm1 = new HashMap();
+		hm1.put("deepu",123456);
+		hm1.put("riya", 456786);
+		hm1.put("kriti", 234567);
+		
+		boolean hasKey = hm.containsKey("mala");
+		
+		
+	}
+}

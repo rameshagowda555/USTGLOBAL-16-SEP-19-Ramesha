@@ -1,0 +1,8 @@
+package com.ustglobal.java8features;
+
+public class TestF {
+	public static void main(String[] args) {
+		Suppiler<Student> s = ()-> new Student(2,"vijay",54.54);
+		
+	}
+}

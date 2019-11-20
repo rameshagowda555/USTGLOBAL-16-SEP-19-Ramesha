@@ -1,0 +1,51 @@
+package com.ustglobal.maps;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class TestG {
+	public static void main(String[] args) {
+		
+		Employee s1 = new Employee(2,"divya",67233.43);
+		Employee s2 = new Employee(5,"bhavya",37314.95);
+		Employee s3 = new Employee(12,"navya",47455.79);
+		Employee s4 = new Employee(24,"kavya",77567.39);
+		Employee s5 = new Employee(1,"ramya",24547.84);
+		Employee s6 = new Employee(8,"ambika",97554.0);
+		Employee s7 = new Employee(34,"anamika",73453.59);
+		Employee s8= new Employee(14,"patrika",66759.5);
+		Employee s9 = new Employee(4,"chatrika",54356.49);
+		
+		ArrayList<Student> al = new ArrayList<Student>();
+		al.add(s1);
+		al.add(s2);
+		al.add(s3);
+		
+		ArrayList<Student> al1 = new ArrayList<Student>();
+		al1.add(s4);
+		al1.add(s5);
+		al1.add(s6);
+		
+		ArrayList<Student> al2 = new ArrayList<Student>();
+		al2.add(s7);
+		al2.add(s8);
+		al2.add(s9);
+		
+		
+		HashMap<String, ArrayList<Student>> hm = new HashMap<String, ArrayList<Student>>();
+		hm.put("first", al);
+		hm.put("second", al1);
+		hm.put("third",al2);
+		
+		ArrayList<Student> first = hm.get("second");
+		
+		Iterator<Student> it = first.iterator();
+		while(it.hasNext()) {
+			Student s = it.next();
+			System.out.println("Student Id is = "+s.id);
+			System.out.println("Student Name is = "+s.name);
+			System.out.println("Student percentage is = "+s.percentage);
+			System.out.println("----------------------------------------");
+		}
+}

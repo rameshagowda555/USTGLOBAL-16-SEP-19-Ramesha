@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.ustglobal.streams&apos; to &apos;com.ustglobal.streams.list&apos;&#x0D;&#x0A;- Original project: &apos;streams&apos;&#x0D;&#x0A;- Original element: &apos;streams/src/com.ustglobal.streams&apos;&#x0D;&#x0A;- Renamed element: &apos;streams/src/com.ustglobal.streams.list&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.ustglobal.streams&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.ustglobal.streams" name="com.ustglobal.streams.list" qualified="false" references="true" stamp="1572951263813" textual="false" version="1.0"/>
+</session>

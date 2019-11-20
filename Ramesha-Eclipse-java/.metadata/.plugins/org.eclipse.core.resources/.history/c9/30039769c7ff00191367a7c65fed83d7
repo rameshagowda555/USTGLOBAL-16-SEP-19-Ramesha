@@ -1,0 +1,22 @@
+package com.ustglobal.java8features;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.stream.Collectors;
+
+public class Helper {
+	void displayAllStudent(ArrayList<Student> al) {
+		Iterator<Student> it = al.iterator();
+		while(it.hasNext()) {
+			Student s = it.next();
+			System.out.println("Student Id is "+s.id);
+			System.out.println("Student Name is "+s.name);
+			System.out.println("Student percentage is "+s.percentage);
+			System.out.println("--------------------------");
+		}
+	}
+	
+	void displayFailedStudents(ArrayList<Student> al) {
+		List<Student> l = al.stream().filter(i -> i<40 ).collect(Collectors.toList())
+	}
+}

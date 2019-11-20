@@ -1,0 +1,13 @@
+package com.ustglobal.java8features;
+
+public class TestB {
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		
+		Student s = new Student(101, Ramesha, 83.02);
+	}
+}

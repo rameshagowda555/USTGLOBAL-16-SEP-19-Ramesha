@@ -1,0 +1,10 @@
+package com.ustglobal.thread.pausing;
+
+public class Slider extends Thread{
+	public static void main(String[] args) {
+		
+		System.out.println("Main Started");
+		
+		System.out.println("MAin Ended");
+	}
+}

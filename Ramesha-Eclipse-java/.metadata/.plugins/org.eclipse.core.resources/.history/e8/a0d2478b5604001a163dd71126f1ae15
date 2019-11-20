@@ -1,0 +1,11 @@
+package com.ustglobal.thread.properties;
+
+public class MyIdThread  extends Thread{
+
+	public static void main(String[] args) {
+		
+		System.out.println("Main Started");
+		
+		System.out.println("MAin ended");
+	}
+}

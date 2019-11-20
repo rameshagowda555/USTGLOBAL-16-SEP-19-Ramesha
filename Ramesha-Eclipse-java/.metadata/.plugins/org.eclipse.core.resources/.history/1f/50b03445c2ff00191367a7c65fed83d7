@@ -1,0 +1,18 @@
+package com.ustglobal.streams.list;
+
+import java.util.ArrayList;
+
+public class TestE {
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> marks = new ArrayList<Integer>();
+		marks.add(70);
+		marks.add(25);
+		marks.add(35);
+		marks.add(30);
+		marks.add(90);
+		marks.add(45);
+		
+		
+	}
+}

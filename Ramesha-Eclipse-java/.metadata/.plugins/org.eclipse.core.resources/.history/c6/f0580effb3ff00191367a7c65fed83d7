@@ -1,0 +1,12 @@
+package com.ustglobal.java8features.predicate;
+
+public class TestA {
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		Employee e = new Employee(101,"Ramesha",34938);
+	}
+}

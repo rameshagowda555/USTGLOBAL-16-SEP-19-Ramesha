@@ -1,0 +1,6 @@
+package com.ustglobal.thread.properties;
+
+public class MyThread extends Thread {
+	
+	
+}

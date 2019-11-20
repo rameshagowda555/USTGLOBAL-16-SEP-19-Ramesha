@@ -1,0 +1,7 @@
+package com.ustglobal.jdbcapp;
+
+public class MyFirstJDBC {
+	public static void main(String[] args) {
+		
+	}
+}

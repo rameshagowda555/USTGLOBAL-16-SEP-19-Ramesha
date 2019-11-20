@@ -1,0 +1,17 @@
+package com.ustglobal.maps;
+
+import java.util.HashMap;
+
+public class TestA {
+	public static void main(String[] args) {
+		
+		HashMap hm = new HashMap();
+		hm.put("Ramesha",741102);
+		hm.put("Mahesha", 741166);
+		hm.put("Sowbhagya", 872254);
+		
+		System.out.println(hm);
+		
+		
+	}
+}

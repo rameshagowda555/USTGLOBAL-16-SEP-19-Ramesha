@@ -1,0 +1,11 @@
+package com.ustglobal.thread.pausing;
+
+public class MyThread extends Thread {
+	@Override
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println("Child Thread");
+			Thread.yield();//pause the execution of Current thread and gives the opporutinity to executes the threads which has same priority or more priority
+		}
+	}
+}

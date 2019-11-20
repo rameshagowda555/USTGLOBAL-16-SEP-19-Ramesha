@@ -1,0 +1,15 @@
+package com.ustglobal.maps;
+
+import java.util.LinkedHashMap;
+
+public class TestE {
+	public static void main(String[] args) {
+		
+
+		TreeMap<String, Integer> lh = new TreeMap<String, Integer>();
+		lh.put("Bangalore",560068);
+		lh.put("Hariyana",134203);
+		lh.put("Patna",880000);
+		lh.put("Bannur", 571101);
+	}
+}

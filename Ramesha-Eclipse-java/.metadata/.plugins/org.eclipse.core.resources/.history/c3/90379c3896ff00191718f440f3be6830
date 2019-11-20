@@ -1,0 +1,26 @@
+package com.ustglobal.maps;
+
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
+public class TestC {
+	public static void main(String[] args) {
+		
+		LinkedHashMap<String, Integer> lh = new LinkedHashMap<String, Integer>();
+		lh.put("Bangalore",560068);
+		lh.put("Hariyana",134203);
+		lh.put("Patna",880000);
+		lh.put("Bannur", 571101);
+		
+		System.out.println(lh);
+		
+		Set<String> s = lh.keySet();
+		
+		System.out.println("***************Using iterator**********");
+		Iterator<String> it = s.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+	}
+}
