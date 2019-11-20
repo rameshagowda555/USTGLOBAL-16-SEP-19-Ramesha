@@ -1,0 +1,85 @@
+package com.ustglobal.empapp;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.empapp.dao.EmployeeDAO;
+import com.ustglobal.empapp.dao.EmployeeDAOImpl;
+import com.ustglobal.empapp.dto.EmployeeBean;
+import com.ustglobal.empapp.util.EmployeeManger;
+
+public class App {
+	public static void main(String[] args) {
+		
+		while(true) {
+			System.out.println("Press 1 to Get all Employee data");
+			System.out.println("Press 2 to Insert Employee data");
+			System.out.println("Press 3 to Update Employee data");
+			System.out.println("Press 4 to Delete Employee data");
+			System.out.println("Press 5 to Search Single Employee data");
+			System.out.println("******************************************");
+			
+			Scanner scn = new Scanner(System.in);
+			int ch = scn.nextInt();
+		
+		switch(ch) {
+		case 1:
+			EmployeeDAO dao1 = EmployeeManger.getEmployeeDAO();
+			List<EmployeeBean>result = dao1.getAllEmployeeData();
+			for(EmployeeBean bean1 : result) {
+				System.out.println("Id: "+bean1.getId());
+				System.out.println("Name: "+bean1.getName());
+				System.out.println("Gender: "+bean1.getGender());
+				System.out.println("Salary: "+bean1.getSal());
+				System.out.println("------------------------------------");
+			}
+			break;
+		
+		case 2:
+			EmployeeDAO dao2 = EmployeeManger.getEmployeeDAO();
+			EmployeeBean bean2 = new EmployeeBean();
+			int count2 = dao2.insertEmployeeData(bean2);
+			System.out.println(count2+" Row(s) Inserted");
+			break;
+			
+		case 3:
+			EmployeeDAO dao3 = EmployeeManger.getEmployeeDAO();
+			EmployeeBean bean3 = new EmployeeBean();
+			int count3 = dao3.updateEmployeeData(bean3);
+			System.out.println(count3+" Row(s) Updated");
+			break;
+			
+		case 4:
+			EmployeeDAO dao4 = EmployeeManger.getEmployeeDAO();
+			System.out.println("Enter Id");
+			int id4 = scn.nextInt();
+			int count4 = dao4.deleteEmployeeData(id4);
+			System.out.println(count4+" Row(s) Deleted");
+			break;
+			
+		case 5:
+			EmployeeDAO dao5 = EmployeeManger.getEmployeeDAO();
+			System.out.println("Enter Id");
+			int id5 = scn.nextInt();
+			EmployeeBean bean5 = dao5.searchEmployeeData(id5);
+			if(bean5!=null) {
+				System.out.println("Id: "+bean5.getId());
+				System.out.println("Name: "+bean5.getName());
+				System.out.println("Gender: "+bean5.getGender());
+				System.out.println("Salary: "+bean5.getSal());
+				System.out.println("------------------------------------");	
+			}else {
+				System.out.println("No Data Found for this Id "+id5);
+			}
+			break;
+
+		}
+	  }
+		
+		
+	}//end of main()
+}//end of App
