@@ -1,0 +1,45 @@
+package com.ustglobal.jpawithhibernateapp;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.ustglobal.jpawithhibernateapp.onetomany.Pencil;
+import com.ustglobal.jpawithhibernateapp.onetomany.PencilBox;
+
+public class TestManyToOne {
+	public static void main(String[] args) {
+		
+		PencilBox pencilBox = new PencilBox();
+		pencilBox.setBid(2);
+		pencilBox.setBname("Apsara");
+		
+		Pencil pencil1 = new Pencil();
+		pencil1.setPid(10);
+		pencil1.setColor("Black");
+		pencil1.setPencilBox(pencilBox);
+		
+		Pencil pencil2 = new Pencil();
+		pencil2.setPid(20);
+		pencil2.setColor("White");
+		pencil2.setPencilBox(pencilBox);
+		
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+			entityManager = entityManagerFactory.createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.persist(pencil1);
+			entityManager.persist(pencil2);
+			System.out.println("Data Inserted Successfully");
+			entityTransaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			entityTransaction.rollback();
+		}
+		entityManager.close();
+	}//end of main()
+}//end of TestManyToOne

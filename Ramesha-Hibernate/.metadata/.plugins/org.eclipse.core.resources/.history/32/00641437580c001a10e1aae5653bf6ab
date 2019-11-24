@@ -1,0 +1,7 @@
+package com.ustglobal.jpawithhibernateapp.onetoonemapping;
+
+public class VoterCard {
+	private int vid;
+	private String vname;
+	
+}

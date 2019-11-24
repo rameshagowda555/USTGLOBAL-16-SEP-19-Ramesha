@@ -1,0 +1,8 @@
+package com.ustglobal.jpawithhibernateapp.jpql;
+
+public class DyanmicInsert {
+	public static void main(String[] args) {
+		
+		
+	}
+}

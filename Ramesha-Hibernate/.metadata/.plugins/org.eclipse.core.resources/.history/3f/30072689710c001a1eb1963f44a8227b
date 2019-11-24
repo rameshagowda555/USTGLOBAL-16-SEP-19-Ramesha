@@ -1,0 +1,17 @@
+package com.ustglobal.jpawithhibernateapp.jpql;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+public class InsertDemo {
+	public static void main(String[] args) {
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction =null;
+		try {
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			entityTransaction.rollback();
+		}
+	}
+}

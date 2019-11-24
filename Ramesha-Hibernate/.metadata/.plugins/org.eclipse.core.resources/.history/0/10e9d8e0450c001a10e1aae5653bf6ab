@@ -1,0 +1,27 @@
+package com.ustglobal.jpawithhibernateapp.jpql;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import com.ustglobal.jpawithhibernateapp.dto.Product;
+
+public class RetriveDemo {
+	public static void main(String[] args) {
+
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		String jpql = "from Product";
+		Query query = entityManager.createQuery(jpql);//it return list of results
+		List<Product> list = query.getResultList();
+		for(Product p:list) {
+			System.out.println(p.getPid());
+			System.out.println(p.getPname());
+			System.out.println(p.getQuantity());
+			System.out.println("********************************");
+		}//end of forEach
+	}//end of main()
+}//end of RetriveDemo

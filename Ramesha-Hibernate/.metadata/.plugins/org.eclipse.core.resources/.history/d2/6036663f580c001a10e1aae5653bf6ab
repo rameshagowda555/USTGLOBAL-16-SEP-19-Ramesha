@@ -1,0 +1,7 @@
+package com.ustglobal.jpawithhibernateapp.onetoonemapping;
+
+public class Person {
+	private int pid;
+	private String name;
+	
+}

@@ -1,0 +1,8 @@
+package com.ustglobal.jpawithhibernateapp;
+
+public class TestManyToMany {
+	public static void main(String[] args) {
+		
+		
+	}
+}

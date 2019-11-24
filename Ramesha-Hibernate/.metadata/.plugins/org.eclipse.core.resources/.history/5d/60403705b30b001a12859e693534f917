@@ -1,0 +1,7 @@
+package com.ustglobal.curdOperationAssignment;
+
+public class DeleteStudent {
+	public static void main(String[] args) {
+
+	}
+}

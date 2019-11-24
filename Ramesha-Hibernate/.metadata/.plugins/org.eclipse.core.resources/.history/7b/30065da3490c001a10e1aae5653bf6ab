@@ -1,0 +1,7 @@
+package com.ustglobal.jpawithhibernateapp.jpql;
+
+public class DeleteDemo {
+	public static void main(String[] args) {
+		
+	}
+}
