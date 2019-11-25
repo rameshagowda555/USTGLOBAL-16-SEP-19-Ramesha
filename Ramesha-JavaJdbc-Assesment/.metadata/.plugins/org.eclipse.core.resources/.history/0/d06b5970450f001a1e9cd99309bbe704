@@ -1,0 +1,7 @@
+package com.ustglobal.appdevelopment.util;
+
+public class PhoneSimlutorApplication {
+	private PhoneSimlutorApplication() {
+		
+	}
+}

@@ -1,0 +1,38 @@
+package com.ustglobal.appdevelopment;
+
+import java.util.Scanner;
+
+import com.ustglobal.appdevelopment.dao.PhoneSimulatorDao;
+import com.ustglobal.appdevelopment.dto.PhoneSimulatorBean;
+import com.ustglobal.appdevelopment.util.PhoneSimlutorApplication;
+
+public class PhoneSimulator {
+	public static void main(String[] args) {
+		
+		
+		while(true) {
+			System.out.println("Press 1 to Show all Contacs");
+			System.out.println("Press 2 to Search for Contact(using name)");
+			System.out.println("Press 3 to Operate on Contact");
+			System.out.println("********************************************");
+		
+			Scanner scn = new Scanner("System.in");
+			System.out.println("Enter Your Option");
+			int option = scn.nextInt();
+			
+			switch(option) {
+			case 1 :
+				PhoneSimulatorDao dao = PhoneSimlutorApplication.getPhoneSimulatorDao();
+				dao.showAllContacts();
+				break;
+			case 2 :
+				break;
+			case 3 :
+				break;
+			default :
+				System.out.println("Invalid Option please Enter Valid Option");
+				break;
+			}
+		}
+	}
+}

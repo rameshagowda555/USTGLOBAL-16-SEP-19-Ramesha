@@ -1,0 +1,27 @@
+package com.ustglobal.appdevelopment.dao;
+
+import java.util.List;
+
+import com.ustglobal.appdevelopment.dto.PhoneSimulatorBean;
+
+public class PhoneSimulatorDaoImpl implements PhoneSimulatorDao {
+
+	@Override
+	public List<PhoneSimulatorBean> showAllContacts() {
+		String url = "jdbc:mysql://localhost:3306/contactfile?user=root&password=root";
+		return null;
+	}
+
+	@Override
+	public PhoneSimulatorBean searchForContact(String name) {
+		
+		return null;
+	}
+
+	@Override
+	public int operateOnContact() {
+		
+		return 0;
+	}
+	
+}

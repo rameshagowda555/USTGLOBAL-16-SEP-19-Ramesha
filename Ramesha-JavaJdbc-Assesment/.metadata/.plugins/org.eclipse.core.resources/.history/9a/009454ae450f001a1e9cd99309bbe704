@@ -1,0 +1,12 @@
+package com.ustglobal.appdevelopment.util;
+
+import com.ustglobal.appdevelopment.dao.PhoneSimulatorDao;
+
+public class PhoneSimlutorApplication {
+	private PhoneSimlutorApplication() {
+		
+	}
+	 public PhoneSimulatorDao getPhoneSimulatorDao() {
+		 
+	 }
+}

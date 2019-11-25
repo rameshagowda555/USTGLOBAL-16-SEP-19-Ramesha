@@ -1,0 +1,13 @@
+package com.ustglobal.appdevelopment.dao;
+
+import java.util.List;
+
+import com.ustglobal.appdevelopment.dto.PhoneSimulatorBean;
+
+public interface PhoneSimulatorDao {
+	public List<PhoneSimulatorBean> showAllContacts();
+	public PhoneSimulatorBean searchForContact(int id);
+	public int insertEmployeeData(EmployeeBean bean);
+	public int updateEmployeeData(EmployeeBean bean);
+	public int deleteEmployeeData(int id);
+}
