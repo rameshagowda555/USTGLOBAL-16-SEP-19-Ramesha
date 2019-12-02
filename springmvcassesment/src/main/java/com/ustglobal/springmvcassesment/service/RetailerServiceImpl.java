@@ -33,7 +33,7 @@ public class RetailerServiceImpl implements RetailerService {
 	}
 
 	@Override
-	public double totalAmountPayable(ProductBean bean) {
+	public double totalAmountPayable(OrderBean bean) {
 		return dao.totalAmountPayable(bean);
 	}
 

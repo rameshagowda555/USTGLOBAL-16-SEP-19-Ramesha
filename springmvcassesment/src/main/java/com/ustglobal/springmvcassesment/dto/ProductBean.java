@@ -1,13 +1,19 @@
 package com.ustglobal.springmvcassesment.dto;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import net.bytebuddy.build.ToStringPlugin.Exclude;
 
 @Entity
 @Table(name="Product")
@@ -18,13 +24,9 @@ public class ProductBean {
 	private int productid;
 	@Column
 	private String productname;
-	@Column
-	private double priceperunit;
-	@Column
-	private int quantity;
-	@Column
-	private double amountpayable;
-
+	@Exclude
+	@OneToMany(mappedBy = "productBean")
+	private List<OrderBean> orderBean;
 	public int getProductid() {
 		return productid;
 	}
@@ -37,26 +39,12 @@ public class ProductBean {
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}
-	public double getPriceperunit() {
-		return priceperunit;
+	public List<OrderBean> getOrderBean() {
+		return orderBean;
 	}
-	public void setPriceperunit(double priceperunit) {
-		this.priceperunit = priceperunit;
+	public void setOrderBean(List<OrderBean> orderBean) {
+		this.orderBean = orderBean;
 	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	public double getAmountpayable() {
-		return amountpayable;
-	}
-	public void setAmountpayable(double amountpayable) {
-		this.amountpayable = amountpayable;
-	}
-	
-	
-	
-	
+
+
 }

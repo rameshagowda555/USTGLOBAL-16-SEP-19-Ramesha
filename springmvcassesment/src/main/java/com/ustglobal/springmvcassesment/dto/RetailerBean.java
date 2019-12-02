@@ -1,5 +1,6 @@
 package com.ustglobal.springmvcassesment.dto;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,8 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import net.bytebuddy.build.ToStringPlugin.Exclude;
 
 @Entity
 @Table(name="Retailer")
@@ -20,10 +24,13 @@ public class RetailerBean {
 	private int id;
 	@Column(length = 17)
 	private String name;
-	@Column
+	@Column(unique = true)
 	private String email;
 	@Column
 	private String password;
+	@Exclude
+	@OneToMany(mappedBy = "retailerBean")
+	private List<OrderBean> orderBean;
 	
 	public int getId() {
 		return id;

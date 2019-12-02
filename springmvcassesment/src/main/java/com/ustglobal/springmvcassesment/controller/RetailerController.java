@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.ustglobal.springmvcassesment.dto.OrderBean;
 import com.ustglobal.springmvcassesment.dto.ProductBean;
 import com.ustglobal.springmvcassesment.dto.RetailerBean;
 import com.ustglobal.springmvcassesment.service.RetailerService;
@@ -70,7 +71,26 @@ public class RetailerController {
 	public String home() {
 		return "home";
 	}//end of home()
-
+	
+	@GetMapping("/order")
+	public String orderPage(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		
+		if(session!=null) {
+			return "order";
+		}else {
+			return "login";
+		}
+	}
+	@PostMapping(path="/order")
+	public String orderPage(OrderBean bean,ModelMap map) {
+		double check = service.totalAmountPayable(bean);
+		map.addAttribute("msg",check);
+		map.addAttribute("bean",bean);
+		return "orderout";
+		
+	}
+	
 	@GetMapping(path="/search")
 	public String search(@RequestParam("productid")int productid,ModelMap map) {
 		ProductBean bean = service.searchProduct(productid);

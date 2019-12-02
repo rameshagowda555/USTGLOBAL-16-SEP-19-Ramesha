@@ -39,16 +39,13 @@
 		<tr>
 			<th>ProductId</th>
 			<th>ProductName</th>
-			<th>PricePerUNit</th>
-			<th>Quantity</th>
-			<th>AmountPayable</th>
+			
 		</tr>
 		<tr>
-			
+			<td><%=productbean.getProductid() %>
 			<td><%=productbean.getProductname()%></td>
-			<td><%=productbean.getPriceperunit()%></td>
-			<td><%=productbean.getQuantity()%></td>
-			<td><%=productbean.getAmountpayable()%></td>
+			
+			<td><a href="./order">OrderNow</a></td>
 		</tr>
 	</table>
 	<%

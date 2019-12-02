@@ -9,7 +9,7 @@ public interface RetailerDao {
 	public RetailerBean login(int id,String password);//select
 	public ProductBean searchProduct(int productid);//select
 	public boolean updateRetailer(int id,String password);//update
-	public double totalAmountPayable(ProductBean bean);
+	public double totalAmountPayable(OrderBean bean);
 	public OrderBean retriveOrder(int id);// select
 	
 }
