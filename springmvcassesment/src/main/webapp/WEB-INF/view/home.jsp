@@ -39,12 +39,11 @@
 		<tr>
 			<th>ProductId</th>
 			<th>ProductName</th>
-			
+			<th>Order</th>
 		</tr>
 		<tr>
 			<td><%=productbean.getProductid() %>
 			<td><%=productbean.getProductname()%></td>
-			
 			<td><a href="./order">OrderNow</a></td>
 		</tr>
 	</table>

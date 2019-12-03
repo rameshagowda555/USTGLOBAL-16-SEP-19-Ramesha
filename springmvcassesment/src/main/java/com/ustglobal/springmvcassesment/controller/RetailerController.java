@@ -84,13 +84,24 @@ public class RetailerController {
 	}
 	@PostMapping(path="/order")
 	public String orderPage(OrderBean bean,ModelMap map) {
-		double check = service.totalAmountPayable(bean);
-		map.addAttribute("msg",check);
-		map.addAttribute("bean",bean);
-		return "orderout";
+		OrderBean bean1  = service.orderDetails(bean.getOrderid());
+		map.addAttribute("msg",bean1);
+		return "order";
 		
 	}
-	
+//	@GetMapping(path="/order")
+//	public String order(@RequestParam("orderid")int orderid,ModelMap map) {
+//		OrderBean bean = service.orderDetails(orderid);
+//		map.addAttribute("orderid",orderid);
+//		if(bean==null) {
+//			map.addAttribute("msg","Order Not Found");
+//		}else {
+//			map.addAttribute("bean",bean);
+//		}
+//		return"search";
+//	}
+//
+//	
 	@GetMapping(path="/search")
 	public String search(@RequestParam("productid")int productid,ModelMap map) {
 		ProductBean bean = service.searchProduct(productid);

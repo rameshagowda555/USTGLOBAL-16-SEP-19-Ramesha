@@ -108,5 +108,12 @@ public class OrderBean {
 		this.retailerBean = retailerBean;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderBean [orderid=" + orderid + ", productname=" + productname + ", priceperunit=" + priceperunit
+				+ ", quantity=" + quantity + ", amountpayable=" + priceperunit*quantity + ", retailerId=" + retailerId +"]";
+	}
+
+
 	
 }

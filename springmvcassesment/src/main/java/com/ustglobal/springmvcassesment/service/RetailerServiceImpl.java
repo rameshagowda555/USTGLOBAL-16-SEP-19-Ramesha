@@ -32,14 +32,19 @@ public class RetailerServiceImpl implements RetailerService {
 		return dao.updateRetailer(id,password);
 	}
 
-	@Override
-	public double totalAmountPayable(OrderBean bean) {
-		return dao.totalAmountPayable(bean);
-	}
+//	@Override
+//	public OrderBean totalAmountPayable(OrderBean bean) {
+//		return dao.totalAmountPayable(bean);
+//	}
 
 	@Override
 	public OrderBean retriveOrder(int id) {
 		return dao.retriveOrder(id);
 	}
+
+@Override
+public OrderBean orderDetails(int orderid) {
+	return dao.orderDetails(orderid);
+}
 	
 }

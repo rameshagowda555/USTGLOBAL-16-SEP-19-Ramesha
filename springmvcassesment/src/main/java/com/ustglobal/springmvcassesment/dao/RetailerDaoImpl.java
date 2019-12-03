@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -74,23 +75,38 @@ public class RetailerDaoImpl implements RetailerDao {
 	}
 
 	// **************************************************************************
-	@Override
-	public double totalAmountPayable(OrderBean bean) {
-		double sum = 0.0;
-		String jpql = "from OrderBean where priceperunit=:price";
-		EntityManager entityManager = factory.createEntityManager();
-		TypedQuery<OrderBean> query = entityManager.createQuery(jpql, OrderBean.class);// it accept generic query
-		query.setParameter("price", "priceperunit");
-		OrderBean value = query.getSingleResult();
-
-		EntityTransaction transaction = entityManager.getTransaction();
-		transaction.begin();
-		OrderBean obean = entityManager.find(OrderBean.class, bean.getOrderid());
-		obean.setAmountpayable(value.getPriceperunit()*obean.getQuantity());
-		int quants = obean.getQuantity();
-		transaction.commit();
-		return obean.getAmountpayable();
-	}
+//	@Override
+//	public OrderBean totalAmountPayable(OrderBean bean) {
+//	
+//		EntityManager entityManager = factory.createEntityManager();
+//		EntityTransaction transaction = entityManager.getTransaction();
+//		transaction.begin();
+//		String jpql = "select priceperunit,quantity from OrderBean where orderid=:id";//jpql query
+//		Query query = entityManager.createQuery(jpql);//it return list of results
+//		query.setParameter("id","orderid");
+//		List<OrderBean> list = query.getResultList();//get list of values
+//		for(OrderBean ans:list) {
+//			System.out.println("Product price per unit : "+ans.getPriceperunit());
+//			System.out.println("Product Quantity : "+ans.getQuantity());
+//			System.out.println("********************************");
+//		}
+		
+//		String jpql = "select priceperunit,quantity from OrderBean";
+//		TypedQuery<OrderBean> query = entityManager.createQuery(jpql, OrderBean.class);// it accept generic query
+//		query.
+//		OrderBean value = query.getSingleResult();
+//		OrderBean obean = entityManager.find(OrderBean.class, bean.getOrderid());
+//		double price = obean.getPriceperunit();
+//		int quant = obean.getQuantity();
+//		double totalprice = price*quant;
+		
+//		obean.setAmountpayable(totalprice);
+//		obean.setAmountpayable(value.getPriceperunit()*obean.getQuantity());
+//		int quants = obean.getQuantity();
+//		transaction.commit();
+//		return totalprice;
+//		return bean;
+//	}
 
 	// ***************************************************************************
 	@Override
@@ -99,4 +115,10 @@ public class RetailerDaoImpl implements RetailerDao {
 		return manager.find(OrderBean.class, id);
 	}
 	// **************************************************************************
+
+	@Override
+	public OrderBean orderDetails(int orderid) {
+		EntityManager manager = factory.createEntityManager();
+		return manager.find(OrderBean.class, orderid);
+	}
 }
