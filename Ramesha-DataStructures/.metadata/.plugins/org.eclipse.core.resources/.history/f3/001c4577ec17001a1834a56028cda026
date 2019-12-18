@@ -1,0 +1,15 @@
+package com.ustglobal.dsa.algo;
+
+public class AlgoAnalysis {
+	public static void main(String[] args) {
+		
+	}
+	
+	public static long addUpto(long number) {
+		long total =0l;
+		for(long i=0;i<=number;i++) {
+			total=total+i;
+		}
+		return total;
+	}
+}

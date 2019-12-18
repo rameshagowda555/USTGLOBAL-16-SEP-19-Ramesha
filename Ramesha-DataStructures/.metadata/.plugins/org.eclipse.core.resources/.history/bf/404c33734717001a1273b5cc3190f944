@@ -1,0 +1,25 @@
+package com.ustglobal.datastructure;
+
+import java.util.Scanner;
+
+public class DataSorting {
+	public static void main(String[] args) {
+		
+		Scanner scn = new Scanner(System.in);
+		System.out.println("Enter size of Array");
+		int size = scn.nextInt();
+		int[] arr = new int[size];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<size;i++) {
+			arr[i]=scn.nextInt();
+		}
+		BubbleSort bo = new BubbleSort();
+		int[]res= bo.bubbleSort(arr); 
+        System.out.println("Sorted array"); 
+        for (int i=0; i<res.length; ++i) 
+            System.out.print(res[i] + " "); 
+        System.out.println(); 
+		 
+	}
+	
+}
